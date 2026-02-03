@@ -117,6 +117,25 @@
             color: #6750A4;
         }
 
+        .admin-card {
+            background: #f0f4ff;
+            border: 1px solid #d0d9f0;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .admin-card h3 {
+            color: #6750A4;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .admin-card p {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
         .contact-section {
             background: #f0f0f5;
             border-radius: 12px;
@@ -189,6 +208,17 @@
             <p>Subsy to aplikacja typu "local-first" — wszystkie Twoje dane są przechowywane wyłącznie na Twoim urządzeniu. Nie zbieramy, nie przesyłamy ani nie przetwarzamy żadnych danych osobowych.</p>
         </div>
 
+        <h2>Administrator</h2>
+        <div class="admin-card">
+            <h3>Dane administratora aplikacji</h3>
+            <p><strong>Firma:</strong> DOMINIK KOWNACKI KOWNET</p>
+            <p><strong>Właściciel:</strong> Dominik Kownacki</p>
+            <p><strong>Adres:</strong> Siekierczyna 67D, 33-192 Ciężkowice, Polska</p>
+            <p><strong>NIP:</strong> 8733270610</p>
+            <p><strong>REGON:</strong> 382754272</p>
+            <p><strong>E-mail:</strong> <a href="mailto:kownet.dev@gmail.com">kownet.dev@gmail.com</a></p>
+        </div>
+
         <h2>Jakie dane przechowuje aplikacja?</h2>
         <p>Aplikacja Subsy przechowuje lokalnie na Twoim urządzeniu:</p>
         <ul>
@@ -199,8 +229,17 @@
         </ul>
 
         <div class="info-card">
-            <strong>Ważne:</strong> Wszystkie te dane są zapisywane wyłącznie w pamięci Twojego telefonu i nigdy nie opuszczają urządzenia.
+            <strong>Ważne:</strong> Wszystkie te dane są zapisywane wyłącznie w pamięci Twojego telefonu i nigdy nie opuszczają urządzenia. Administrator nie ma dostępu do tych danych.
         </div>
+
+        <h2>Podstawa prawna</h2>
+        <p>Aplikacja Subsy nie przetwarza danych osobowych w rozumieniu RODO (Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679), ponieważ:</p>
+        <ul>
+            <li>Wszystkie dane są przechowywane wyłącznie lokalnie na urządzeniu użytkownika</li>
+            <li>Administrator nie ma technicznej możliwości dostępu do danych użytkowników</li>
+            <li>Dane nie są przesyłane na żadne zewnętrzne serwery</li>
+        </ul>
+        <p>Użytkownik samodzielnie zarządza swoimi danymi na własnym urządzeniu.</p>
 
         <h2>Czego NIE robimy</h2>
         <ul>
@@ -210,45 +249,82 @@
             <li>Nie wyświetlamy reklam</li>
             <li>Nie udostępniamy żadnych informacji podmiotom trzecim</li>
             <li>Nie wymagamy rejestracji ani logowania</li>
+            <li>Nie profilujemy użytkowników</li>
         </ul>
 
         <h2>Uprawnienia aplikacji</h2>
         <p>Aplikacja wymaga następujących uprawnień systemowych:</p>
         <ul>
-            <li><strong>Powiadomienia</strong> — do wysyłania przypomnień o nadchodzących płatnościach</li>
-            <li><strong>Alarmy</strong> — do precyzyjnego planowania powiadomień</li>
-            <li><strong>Dostęp do plików</strong> — tylko podczas importu/eksportu kopii zapasowej (na Twoje żądanie)</li>
-            <li><strong>Internet</strong> — wyłącznie do pobierania ikon usług (np. logo Netflix, Spotify)</li>
+            <li><strong>Powiadomienia (POST_NOTIFICATIONS)</strong> — do wysyłania przypomnień o nadchodzących płatnościach</li>
+            <li><strong>Alarmy (SCHEDULE_EXACT_ALARM)</strong> — do precyzyjnego planowania powiadomień</li>
+            <li><strong>Uruchamianie po restarcie (RECEIVE_BOOT_COMPLETED)</strong> — do przywrócenia zaplanowanych powiadomień po ponownym uruchomieniu urządzenia</li>
+            <li><strong>Internet (INTERNET)</strong> — wyłącznie do pobierania ikon usług</li>
         </ul>
 
         <div class="info-card">
-            <strong>Ikony usług:</strong> Aplikacja pobiera ikony z publicznego API Google (google.com/s2/favicons). Jest to jedyne połączenie sieciowe — nie przesyłamy przy tym żadnych Twoich danych.
+            <strong>Ikony usług:</strong> Aplikacja pobiera ikony z publicznego API Google (google.com/s2/favicons). Jest to jedyne połączenie sieciowe — nie przesyłamy przy tym żadnych Twoich danych osobowych. Zapytanie zawiera jedynie domenę usługi (np. "netflix.com"), a nie dane użytkownika.
         </div>
+
+        <h2>Usługi zewnętrzne</h2>
+        <p>Aplikacja korzysta z następujących usług zewnętrznych:</p>
+        <ul>
+            <li><strong>Google Favicons API</strong> — do pobierania ikon usług. Polityka prywatności Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+        </ul>
+        <p>Żadne dane osobowe użytkownika nie są przekazywane do tych usług.</p>
 
         <h2>Kopie zapasowe</h2>
         <p>Funkcja eksportu/importu pozwala zapisać dane do pliku JSON na Twoim urządzeniu. Plik ten:</p>
         <ul>
             <li>Jest tworzony i przechowywany lokalnie</li>
-            <li>Zawiera tylko dane o subskrypcjach</li>
+            <li>Zawiera tylko dane o subskrypcjach wprowadzone przez użytkownika</li>
             <li>Nie jest automatycznie wysyłany nigdzie</li>
-            <li>Możesz go samodzielnie przenieść lub usunąć</li>
+            <li>Możesz go samodzielnie przenieść, udostępnić lub usunąć</li>
+        </ul>
+        <p>Użytkownik ponosi odpowiedzialność za bezpieczeństwo wyeksportowanych plików.</p>
+
+        <h2>Bezpieczeństwo danych</h2>
+        <p>Dane przechowywane przez aplikację są chronione przez mechanizmy bezpieczeństwa systemu Android, w tym:</p>
+        <ul>
+            <li>Izolację danych aplikacji (sandbox)</li>
+            <li>Szyfrowanie pamięci urządzenia (jeśli włączone przez użytkownika)</li>
+            <li>Kontrolę dostępu na poziomie systemu operacyjnego</li>
+        </ul>
+
+        <h2>Prawa użytkownika</h2>
+        <p>Ponieważ wszystkie dane są przechowywane lokalnie na Twoim urządzeniu, masz pełną kontrolę nad nimi:</p>
+        <ul>
+            <li><strong>Dostęp</strong> — wszystkie dane są widoczne bezpośrednio w aplikacji</li>
+            <li><strong>Edycja</strong> — możesz dowolnie modyfikować wprowadzone informacje</li>
+            <li><strong>Usunięcie</strong> — możesz usunąć poszczególne subskrypcje lub odinstalować aplikację</li>
+            <li><strong>Przenoszenie</strong> — funkcja eksportu pozwala pobrać dane w formacie JSON</li>
         </ul>
 
         <h2>Usunięcie danych</h2>
-        <p>Aby usunąć wszystkie dane, wystarczy odinstalować aplikację z urządzenia. Ponieważ nie przechowujemy żadnych danych na serwerach, odinstalowanie całkowicie usuwa wszystkie informacje.</p>
+        <p>Aby usunąć wszystkie dane, wystarczy odinstalować aplikację z urządzenia. Ponieważ nie przechowujemy żadnych danych na serwerach, odinstalowanie całkowicie i trwale usuwa wszystkie informacje.</p>
 
-        <h2>Zmiany w polityce</h2>
-        <p>W przypadku istotnych zmian w polityce prywatności, zaktualizujemy tę stronę i datę ostatniej modyfikacji poniżej.</p>
+        <h2>Dzieci</h2>
+        <p>Aplikacja Subsy nie jest skierowana do dzieci poniżej 13. roku życia. Nie zbieramy świadomie żadnych danych od dzieci. Aplikacja jest przeznaczona do zarządzania finansami osobistymi przez osoby dorosłe.</p>
+
+        <h2>Zmiany w polityce prywatności</h2>
+        <p>W przypadku istotnych zmian w polityce prywatności:</p>
+        <ul>
+            <li>Zaktualizujemy tę stronę</li>
+            <li>Zmienimy datę ostatniej modyfikacji</li>
+            <li>W przypadku znaczących zmian, poinformujemy użytkowników poprzez aktualizację aplikacji</li>
+        </ul>
+        <p>Zalecamy okresowe sprawdzanie tej strony.</p>
 
         <div class="contact-section">
             <h2 style="justify-content: center; margin-top: 0;">Kontakt</h2>
-            <p>Masz pytania dotyczące prywatności?</p>
-            <p><a href="mailto:kownet.dev@gmail.com">kownet.dev@gmail.com</a></p>
+            <p>Masz pytania dotyczące prywatności lub działania aplikacji?</p>
+            <p><strong>E-mail:</strong> <a href="mailto:kownet.dev@gmail.com">kownet.dev@gmail.com</a></p>
+            <p style="margin-top: 16px; font-size: 14px; color: #666;">Odpowiadamy na wiadomości w ciągu 7 dni roboczych.</p>
         </div>
 
         <footer class="footer">
-            <p>Ostatnia aktualizacja: Styczeń 2026</p>
-            <p style="margin-top: 8px;">© 2026 Subsy. Wszelkie prawa zastrzeżone.</p>
+            <p><strong>Ostatnia aktualizacja:</strong> 3 lutego 2026</p>
+            <p style="margin-top: 8px;">© 2026 DOMINIK KOWNACKI KOWNET. Wszelkie prawa zastrzeżone.</p>
+            <p style="margin-top: 4px; font-size: 12px;">Subsy - Menedżer Subskrypcji | Wersja 1.0.0</p>
         </footer>
     </div>
 </body>
